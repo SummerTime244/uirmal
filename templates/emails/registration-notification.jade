@@ -1,0 +1,26 @@
+extends layouts/base
+
+block content
+	h1 Hi *|first_name|*,
+	p.text-larger Your registration was just submitted to #{brand}:
+	if registration.name.full || registration.email
+		p.text-larger From:
+			if registration.name.full
+				| <strong> #{registration.name.full}</strong>
+			if registration.name.full && registration.email
+				|  (
+			if registration.email
+				| <a href="mailto:#{registration.email}">#{registration.email}</a>
+			if registration.name.full && registration.email
+				| )
+	if registration.school
+		p.text-larger School: #{registration.school}
+	if registration.phone
+		p.text-larger Phone: #{registration.phone}
+	if registration.numOfStudents
+		p.text-larger #{registration._.numOfStudents.format()}
+	if registration.message
+		.text-larger !{registration.message.html}
+	p.text-muted Sent #{registration._.createdAt.format()}
+	p &nbsp;
+	a(href='/keystone/registrations/#{registration.id}') Open in Keystone

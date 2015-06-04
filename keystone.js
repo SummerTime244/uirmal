@@ -6,6 +6,12 @@ require('dotenv').load();
 var keystone = require('keystone'),
 	cons = require('consolidate'),
 	nunjucks = require('nunjucks');
+	memjs = require('memjs');
+
+var client = memjs.Client.create(process.env.MEMCACHEDCLOUD_SERVERS, {
+  username: process.env.MEMCACHEDCLOUD_USERNAME,
+  password: process.env.MEMCACHEDCLOUD_PASSWORD
+});
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options

@@ -3,19 +3,19 @@
 
 {% block intro %}
     <div class="container">
-        <h1>Register for UIRIMAL</h1>
+        <h1>UIRIMAL Staff Application</h1>
     </div>
 {% endblock %}
 
                 {% block content %}
                 <div class="container">
-                        {% if registrationSubmitted %}
-                            <h3>We look forward to seeing you at UIRIMAL!</h3>
+                        {% if staffSubmitted %}
+                            <h3>Thank you for applying for staff at UIRIMAL!</h3>
                         {% else %}
                             <div class="row">
                                 <div class="col-sm-12 col-md-12">
                                     <form method="post">
-                                        <input type="hidden" name="action" value="register">
+                                        <input type="hidden" name="action" value="staff">
                                         {% set class = ( "has-error" if validationErrors.name else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
@@ -43,17 +43,17 @@
                                                 <input type="text" name="phone" value="{{ formData.phone }}" placeholder="(optional)" class="form-control">
                                             </label>
                                         </div>
-                                        {% set class = ( "has-error" if validationErrors.numOfStudents else "" ) %}
+                                        {% set class = ( "has-error" if validationErrors.position else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <span>Number of Students</span>
-                                                <input type="text" name="numOfStudents" value="{{ formData.numOfStudents }}" class="form-control">  
+                                                <span>What position are you applying for?</span>
+                                                <input type="text" name="position" value="{{ formData.position }}" class="form-control">  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.message else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
                                                 <span>Message</span>
-                                                <textarea name="message" placeholder="Please tell us more about your team and what countries you would like to represent." rows="5" cols="50" class="form-control">{{ formData.message }}</textarea>
+                                                <textarea name="message" placeholder="Please tell us more about yourself, your history with Model Arab League, and the position you would like to fill." rows="5" cols="50" class="form-control">{{ formData.message }}</textarea>
                                             </label>
                                         </div>
                                         <div class="form-actions">

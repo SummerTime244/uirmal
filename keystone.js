@@ -95,6 +95,7 @@ keystone.set('nav', {
 	'registrations': 'registrations',
 	'galleries': 'galleries',
 	'enquiries': 'enquiries',
+	'staffs': 'staffs',
 	'users': 'users'
 });
 

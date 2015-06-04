@@ -65,3 +65,27 @@ module.exports = {
 		});
 	}
 };
+
+module.exports = {
+	'staff-notification': function(req, res, callback) {
+		
+		// Need to find test email locations
+		
+		var Staff = keystone.list('Staff');
+		
+		var newStaff = new Staff.model({
+			name: { first: 'Test', last: 'User' },
+			school: 'Some University',
+			email: 'contact@uirimal.com',
+			phone: '555-555-5555',
+			position: 'Chair',
+			message: { md: 'Registered for UIRIMAL!' },
+		});
+		
+		callback(null, {
+			admin: 'Admin User',
+			staff: newStaff,
+			staff_url: '/keystone/staff/'
+		});
+	}
+};

@@ -1,0 +1,26 @@
+extends layouts/base
+
+block content
+	h1 Hi *|first_name|*,
+	p.text-larger Your application was just submitted to #{brand}:
+	if staff.name.full || staff.email
+		p.text-larger From:
+			if staff.name.full
+				| <strong> #{staff.name.full}</strong>
+			if staff.name.full && staff.email
+				|  (
+			if staff.email
+				| <a href="mailto:#{staff.email}">#{staff.email}</a>
+			if staff.name.full && staff.email
+				| )
+	if staff.school
+		p.text-larger School: #{staff.school}
+	if staff.phone
+		p.text-larger Phone: #{staff.phone}
+	if staff.position
+		p.text-larger Desired Position: #{staff.position}
+	if staff.message
+		.text-larger !{staff.message.html}
+	p.text-muted Sent #{staff._.createdAt.format()}
+	p &nbsp;
+	a(href='/keystone/staff/#{staff.id}') Open in Keystone

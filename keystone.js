@@ -79,10 +79,10 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
 	find: '/images/',
-	replace: (keystone.get('env') == 'production') ? 'http://www.uirimal.com/images/' : 'http://localhost:3000/images/'
+	replace: (keystone.get('env') == 'production') ? 'http://www.uirimal.com/images/' : 'http://localhost:80/images/'
 }, {
 	find: '/keystone/',
-	replace: (keystone.get('env') == 'production') ? 'http://www.uirimal.com/keystone/' : 'http://localhost:3000/keystone/'
+	replace: (keystone.get('env') == 'production') ? 'http://www.uirimal.com/keystone/' : 'http://localhost:80/keystone/'
 }]);
 
 // Load your project's email test routes

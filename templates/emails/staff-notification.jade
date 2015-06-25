@@ -20,7 +20,7 @@ block content
 	if staff.position
 		p.text-larger Desired Position: #{staff.position}
 	if staff.message
-		.text-larger !{staff.message.html}
+		.text-larger Personal Message: !{staff.message.html}
 	p.text-muted Sent #{staff._.createdAt.format()}
 	p &nbsp;
 	a(href='/keystone/staff/#{staff.id}') Open in Keystone

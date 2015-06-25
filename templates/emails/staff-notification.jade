@@ -2,7 +2,7 @@ extends layouts/base
 
 block content
 	h1 Hi *|first_name|*,
-	p.text-larger Your application was just submitted to #{brand}:
+	p.text-larger New Application for staff at #{brand}:
 	if staff.name.full || staff.email
 		p.text-larger From:
 			if staff.name.full

@@ -2,7 +2,7 @@ extends layouts/base
 
 block content
 	h1 Hi *|first_name|*,
-	p.text-larger An enquiry was just submitted to #{brand}:
+	p.text-larger A question was just submitted for #{brand}:
 	if enquiry.name.full || enquiry.email
 		p.text-larger From:
 			if enquiry.name.full

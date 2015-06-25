@@ -15,13 +15,12 @@ exports = module.exports = function(req, res) {
 
 	// On POST requests, add the Registration item to the database
 	view.on('post', { action: 'register' }, function(next) {
-		console.log("Test sending action");
 		var newRegistration = new Registration.model(),
 			updater = newRegistration.getUpdateHandler(req);
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, school, email, phone, numOfStudents, message',
+			fields: 'name, school, email, phone, numOfStudents, tourPackage, message',
 			errorMessage: 'There was a problem submitting your registration:'
 		}, function(err) {
 			if (err) {

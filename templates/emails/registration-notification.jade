@@ -19,6 +19,10 @@ block content
 		p.text-larger Phone: #{registration.phone}
 	if registration.numOfStudents
 		p.text-larger #{registration.numOfStudents}
+	if registration.tourPackage = true
+		p.text-larger We are interested in a tour package!
+	else
+		p.text-larger We would not be interested in a tour package.
 	if registration.message
 		.text-larger !{registration.message.html}
 	p.text-muted Sent #{registration._.createdAt.format()}

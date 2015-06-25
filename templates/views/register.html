@@ -47,7 +47,15 @@
                                         <div class="form-group {{ class }}">
                                             <label>
                                                 <span>Number of Students</span>
-                                                <input type="text" name="numOfStudents" value="{{ formData.numOfStudents }}" class="form-control">  
+                                                <input type="text" name="numOfStudents" value="{{ formData.numOfStudents }}" class="form-control">
+                                            </label>  
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.tourPackage else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <span>Would you be interested in a tour package for you and your students?  If so, please check the box to indicate your interest!</span>  
+                                                <input type="checkbox" id="tour" name="tourPackage" value="true" class="form-control">
+                                            </label>
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.message else "" ) %}
                                         <div class="form-group {{ class }}">

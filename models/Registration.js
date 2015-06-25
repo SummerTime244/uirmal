@@ -8,7 +8,7 @@ var keystone = require('keystone'),
 
 var Registration = new keystone.List('Registration', {
 	nocreate: true,
-	noedit: true
+	noedit: false
 });
 
 Registration.add({
@@ -16,8 +16,9 @@ Registration.add({
 	school: {type: String, required: true},
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
-	numOfStudents: { type: String },
-	message: { type: Types.Markdown,required: true },
+	numOfStudents: { type: String, required: true },
+	tourPackage: { type: Types.Boolean, initial: true, index: true },
+	message: { type: Types.Markdown, required: true },
 	createdAt: { type: Date, default: Date.now }
 });
 

@@ -55,6 +55,7 @@ module.exports = {
 			email: 'contact@uirimal.com',
 			phone: '555-555-5555',
 			numOfStudents: '10',
+			tourPackage: false,
 			message: { md: 'Registered for UIRIMAL!' },
 		});
 		

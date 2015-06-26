@@ -2,7 +2,7 @@
                 
 
 {% block intro %}
-    <div class="container">
+    <div class="container" style="padding-top: 25px;">
         <h1>Register for UIRIMAL</h1>
     </div>
 {% endblock %}
@@ -42,6 +42,28 @@
                                                 <span>Phone</span>
                                                 <input type="text" name="phone" value="{{ formData.phone }}" placeholder="(optional)" class="form-control">
                                             </label>
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.country1 else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <span>Top 3 Country Preferences</span>
+                                                <div id="countries"><select name="country1" value="{{ formData.country1 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                </select></div>
+                                            </label>  
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.country2 else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <div id="countries"><select name="country2" value="{{ formData.country2 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                </select></div>
+                                            </label>  
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.country3 else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <div id="countries"><select name="country3" value="{{ formData.country3 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                </select></div>
+                                            </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.numOfStudents else "" ) %}
                                         <div class="form-group {{ class }}">

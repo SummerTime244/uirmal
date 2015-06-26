@@ -8,7 +8,7 @@ var keystone = require('keystone'),
 
 var Staff = new keystone.List('Staff', {
 	nocreate: true,
-	noedit: true
+	noedit: false
 });
 
 Staff.add({

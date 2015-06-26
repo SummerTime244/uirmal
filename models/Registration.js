@@ -7,7 +7,7 @@ var keystone = require('keystone'),
  */
 
 var Registration = new keystone.List('Registration', {
-	nocreate: true,
+	nocreate: false,
 	noedit: false
 });
 
@@ -17,6 +17,9 @@ Registration.add({
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
 	numOfStudents: { type: String, required: true },
+	country1: { type: Types.Select, options: 'Algeria, Bahrain, Comoros, Djibouti, Egypt, Iraq, Jordan, Kuwait, Lebanon, Libya, Mauritania, Morocco, Oman, Palestine, Qatar, Saudi Arabia, Somalia, Sudan, Syria, Tunisia, UAE, Yemen', required: true },
+	country2: { type: Types.Select, options: 'Algeria, Bahrain, Comoros, Djibouti, Egypt, Iraq, Jordan, Kuwait, Lebanon, Libya, Mauritania, Morocco, Oman, Palestine, Qatar, Saudi Arabia, Somalia, Sudan, Syria, Tunisia, UAE, Yemen', required: true },
+	country3: { type: Types.Select, options: 'Algeria, Bahrain, Comoros, Djibouti, Egypt, Iraq, Jordan, Kuwait, Lebanon, Libya, Mauritania, Morocco, Oman, Palestine, Qatar, Saudi Arabia, Somalia, Sudan, Syria, Tunisia, UAE, Yemen', required: true },
 	tourPackage: { type: Types.Boolean, initial: true, index: true },
 	message: { type: Types.Markdown, required: true },
 	createdAt: { type: Date, default: Date.now }

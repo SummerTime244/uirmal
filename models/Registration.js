@@ -13,7 +13,7 @@ var Registration = new keystone.List('Registration', {
 
 Registration.add({
 	name: { type: Types.Name, required: true },
-	school: {type: String, required: true},
+	school: {type: String, initial: true, required: true},
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
 	numOfStudents: { type: String, required: true },

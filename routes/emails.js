@@ -45,6 +45,8 @@ module.exports = {
 module.exports = {
 	'registration-notification': function(req, res, callback) {
 		
+		// Need to find test email locations
+		
 		var Registration = keystone.list('Registration');
 		
 		var newRegistration = new Registration.model({
@@ -67,6 +69,8 @@ module.exports = {
 
 module.exports = {
 	'staff-notification': function(req, res, callback) {
+		
+		// Need to find test email locations
 		
 		var Staff = keystone.list('Staff');
 		

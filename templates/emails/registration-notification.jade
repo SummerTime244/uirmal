@@ -17,11 +17,13 @@ block content
 		p.text-larger School: #{registration.school}
 	if registration.phone
 		p.text-larger Phone: #{registration.phone}
-	if registration.country1 || registration.country2 || registration.country3
+	if registration.country1 || registration.country2 || registration.country3 || registration.country4 || registration.country5
 		p.text-larger Country Preferences:
 			p.text-larger <strong>1</strong> - #{registration.country1}
 			p.text-larger <strong>2</strong> - #{registration.country2}
 			p.text-larger <strong>3</strong> - #{registration.country3}
+			p.text-larger <strong>2</strong> - #{registration.country4}
+			p.text-larger <strong>3</strong> - #{registration.country5}
 	if registration.numOfStudents
 		p.text-larger Delegation Size: #{registration.numOfStudents}
 	if registration.tourPackage = true

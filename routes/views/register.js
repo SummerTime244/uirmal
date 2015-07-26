@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
 		
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, school, email, phone, country1, country2, country3, numOfStudents, tourPackage, message',
+			fields: 'name, headDelegate, school, email, phone, numOfStudents, country1, country2, country3, country4, country5, tourPackage, message',
 			errorMessage: 'There was a problem submitting your registration:'
 		}, function(err) {
 			if (err) {

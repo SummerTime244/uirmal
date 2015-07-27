@@ -4,26 +4,47 @@
 {% block intro %}
     <div class="container" style="padding-top: 25px;">
         <h1>Register for UIRIMAL</h1>
+        <h2>Opens 1 August 2015</h2>
     </div>
 {% endblock %}
 
                 {% block content %}
                 <div class="container">
                         {% if registrationSubmitted %}
-                            <h3>We look forward to seeing you at UIRIMAL!</h3>
+                            <h4>Your registration was submitted successfully!  You will recieve an invoice in your email inbox shortly.  Please respond promptly, country assignments will only be made after the invoice is paid.</h4>
+                            <h4>We look forward to seeing you at UIRIMAL!</h4>
+                            <p>Thanks,</p>
+                            <p>UIRIMAL Staff</p>
                         {% else %}
                         <br/>
                         <p><strong>Important Information:</strong></p>
-                        <p>By submitting the following form, you are agreeing to provide payment for the conference promptly.  The conference is <strong>$165 USD, per person</strong> -- this covers lodging and conference costs, it DOES NOT cover your flight, meals or in-town transportation.  Please use our calculator widget to estimate your cost for the conference.</p>
-                        <p style="border-top: 1px solid #ccc;"><strong>Conference Cost Calculator</strong></p>
-                        <div class="form-group">
-                            <div class="col-sm-12 col-md-12">
-                                <input type="text" name="team_size[]" placeholder="Delegation Size"><span> * 165 = </span>
-                                <span><strong>$</strong></span><input type="text" name="total_cost[]" readonly placeholder="Total"><span> USD</span>
+                        <p>By submitting the following form, you are agreeing to provide payment for the conference promptly.  The conference is <strong>$170 USD, per person (faculty advisors + delegates)</strong> -- this covers lodging and conference costs, it DOES NOT cover your flight, some meals, or in-town transportation.  Please use our calculator widget to estimate your cost for the conference.  If you have any questions about anything on this form, please feel free to <a href="/contact">Contact Us</a>.</p>
+                        <div class="preview-box">
+                            <p><strong>Conference Cost Calculator</strong></p>
+                            <div class="form-group">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span><input type="text" name="team_size[]" class="form-control" placeholder="Delegation Size">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><strong>x</strong> $170 =</span>
+                                            </div>
+                                        </div>   
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><strong>$</strong></span><input type="text" name="total_cost[]" class="form-control" readonly placeholder="Total"><span class="input-group-addon">USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+                            <small style="margin-top: 10px;">Enter your delegation size (faculty advisors + delegates) and hit Enter or Tab</small>
                         </div>
-                        <small style="margin-top: 10px;">Enter your delegation size and hit Enter or Tab</small>
-                        <p style="border-top: 1px solid #ccc; margin-top: 15px;">**All Fields (except the Personal Message) are REQUIRED**</p>
+                        <p style="margin-top: 15px;">**All Fields (except the Personal Message) are REQUIRED**</p>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12">
                                     <form method="post">
@@ -31,15 +52,41 @@
                                         {% set class = ( "has-error" if validationErrors.name else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <span>Faculty Advisor and/or Head Delegate</span>
+                                                <span>Faculty Advisor</span>
                                                 <input type="text" name="name.full" value="{{ formData["name.full"] }}" class="form-control">
+                                            </label>
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.email else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <span>Faculty Advisor Email</span>
+                                                <input type="email" name="email" value="{{ formData.email }}" class="form-control">
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>
+                                                <span>Faculty Advisor Phone</span>
+                                                <input type="text" name="phone" value="{{ formData.phone }}" class="form-control">
                                             </label>
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.headDelegate else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <span>Head Delegate (if you have a Head Delegate AND a Faculty Advisor)</span>
-                                                <input type="text" name="headDelegate.full" value="{{ formData["headDelegate.full"] }}" class="form-control">
+                                                <span>Head Delegate</span>
+                                                <input type="text" name="headDelegate.full" value="{{ formData["headDelegate.full"] }}" value="Not Applicable" class="form-control">
+                                            </label>
+                                        </div>
+                                        {% set class = ( "has-error" if validationErrors.hdEmail else "" ) %}
+                                        <div class="form-group {{ class }}">
+                                            <label>
+                                                <span>Head Delegate Email</span>
+                                                <input type="email" name="hdEmail" value="{{ formData.hdEmail }}" value="Not Applicable" class="form-control">
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>
+                                                <span>Head Delegate Phone</span>
+                                                <input type="text" name="hdPhone" value="{{ formData.hdPhone }}" value="Not Applicable" class="form-control">
                                             </label>
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.school else "" ) %}
@@ -49,59 +96,47 @@
                                                 <input type="text" name="school" value="{{ formData.school }}" class="form-control">
                                             </label>
                                         </div>
-                                        {% set class = ( "has-error" if validationErrors.email else "" ) %}
-                                        <div class="form-group {{ class }}">
-                                            <label>
-                                                <span>Email</span>
-                                                <input type="email" name="email" value="{{ formData.email }}" class="form-control">
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>
-                                                <span>Phone</span>
-                                                <input type="text" name="phone" value="{{ formData.phone }}" placeholder="(optional)" class="form-control">
-                                            </label>
-                                        </div>
                                         {% set class = ( "has-error" if validationErrors.numOfStudents else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <span>Number of Delegates</span>
+                                                <span>Number of Delegates + Faculty Advisors</span>
                                                 <input type="text" name="numOfStudents" value="{{ formData.numOfStudents }}" class="form-control">
+                                                <small>**You can bring up to two delegates per council.**</small>
                                             </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.country1 else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <span>Top 3 Country Preferences</span>
-                                                <div id="countries"><select name="country1" value="{{ formData.country1 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                <span>Top 5 Country Preferences</span>
+                                                <div id="countries"><select name="country1" value="{{ formData.country1 }}" class="form-control"><option value="Algeria" selected="selected">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Eritrea">Eritrea (Observer)</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey (Observer)</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
                                                 </select></div>
                                             </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.country2 else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <div id="countries"><select name="country2" value="{{ formData.country2 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                <div id="countries"><select name="country2" value="{{ formData.country2 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain" selected="selected">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Eritrea">Eritrea (Observer)</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey (Observer)</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
                                                 </select></div>
                                             </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.country3 else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <div id="countries"><select name="country3" value="{{ formData.country3 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                <div id="countries"><select name="country3" value="{{ formData.country3 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros" selected="selected">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Eritrea">Eritrea (Observer)</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey (Observer)</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
                                                 </select></div>
                                             </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.country4 else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <div id="countries"><select name="country4" value="{{ formData.country4 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                <div id="countries"><select name="country4" value="{{ formData.country4 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti" selected="selected">Djibouti</option><option value="Egypt">Egypt</option><option value="Eritrea">Eritrea (Observer)</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey (Observer)</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
                                                 </select></div>
                                             </label>  
                                         </div>
                                         {% set class = ( "has-error" if validationErrors.country5 else "" ) %}
                                         <div class="form-group {{ class }}">
                                             <label>
-                                                <div id="countries"><select name="country5" value="{{ formData.country5 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt">Egypt</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
+                                                <div id="countries"><select name="country5" value="{{ formData.country5 }}" class="form-control"><option value="Algeria">Algeria</option><option value="Bahrain">Bahrain</option><option value="Comoros">Comoros</option><option value="Djibouti">Djibouti</option><option value="Egypt" selected="selected">Egypt</option><option value="Eritrea">Eritrea (Observer)</option><option value="Iraq">Iraq</option><option value="Jordan">Jordan</option><option value="Kuwait">Kuwait</option><option value="Lebanon">Lebanon</option><option value="Libya">Libya</option><option value="Mauritania">Mauritania</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Palestine">State of Palestine</option><option value="Qatar">Qatar</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Somalia">Somalia</option><option value="Sudan">Sudan</option><option value="Syria">Syria</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey (Observer)</option><option value="UAE">United Arab Emirates</option><option value="Yemen">Yemen</option>
                                                 </select></div>
                                             </label>  
                                         </div>
@@ -120,18 +155,17 @@
                                             </label>
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit" class="btn btn-primary" name="completeRegistration" value="yes">Register</button>
+                                            <button type="submit" class="btn btn-default" name="completeRegistration" value="yes">Register</button>
                                         </div>
                                     </form>
                                     <div id="confirm" class="modal fade">
                                         <div class="modal-content">
                                                 <div class="modal-dialog">
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title" style="font-weight: bold;">Are you sure?</h4>
+                                                            <h4 class="modal-title" style="font-weight: bold;">Please confirm!</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Please remember that by choosing "Yes", you are agreeing to pay $165 USD per person in your delegation and faculty to the UIRIMAL Conference and you understand what said fee covers and does not cover.  We may refund 50% of the total fee to you up to 6 weeks before the conference begins on a case-by-case basis.  After we enter a period of within 6 weeks before the conference starts, we cannot refund any fees.</p>
-                                                        </div>
+                                                            <p>Please remember that by choosing "Yes", you are agreeing to pay $170 USD per person in your delegation and faculty to the UIRIMAL Conference and you understand what said fee covers and does not cover.  We may refund 50% of the total fee to you up to 6 weeks before the conference begins on a case-by-case basis.  After we enter a period of within 6 weeks before the conference starts, we cannot refund any fees.</p>
                                                         <div class="modal-footer">
                                                             <button type="submit" id="yes" class="btn btn-default" data-dismiss="modal">Yes</button>
                                                             <button type="button" class="btn" data-dismiss="modal">No</button>

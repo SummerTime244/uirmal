@@ -137,51 +137,6 @@
 			</script>
 			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 		{% endblock %}
-		<script type="text/javascript">
-        (function ($) {
-            $(document).ready(function () {
-
-                // hide .navbar first
-                $("#registerBtn").hide();
-
-                // fade in .navbar
-                $(function () {
-                    $(window).scroll(function () {
-
-                        // set distance user needs to scroll before we start fadeIn
-                        if ($(this).scrollTop() > 450) {
-                            $('#registerBtn').fadeIn();
-                        } else {
-                            $('#registerBtn').fadeOut();
-                        }
-                    });
-                });
-
-            });
-        }(jQuery));
-    	</script>
-    	<script>
-    		$('button[name="completeRegistration"]').on('click', function(e){
-			    var $form=$(this).closest('form');
-			    e.preventDefault();
-			    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-			        .one('click', '#yes', function (e) {
-			            $form.trigger('submit');
-			        });
-			});
-		</script>
-		<script>
-			$(function () { 
-			  $('input[name="team_size[]"]').on("change",function (){
-			    var $container = $(this).closest('.form-group');
-			      qty = Number($('input[name="team_size[]"]',$container).val())||0,
-			      price = Number(165)||0;
-
-			    $('input[name="total_cost[]"]',$container).val(qty * price);
-
-			  })
-
-			});
-		</script>
+		<script src="/js/custom.js"></script>
 	</body>
 </html>

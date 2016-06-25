@@ -33,7 +33,7 @@ $(function () {
 	$('input[name="team_size[]"]').on("change",function (){
 		var $container = $(this).closest('.form-group');
 		qty = Number($('input[name="team_size[]"]',$container).val())||0,
-		price = Number(170)||0;
+		price = Number(75)||0;
 
 	$('input[name="total_cost[]"]',$container).val(qty * price);
 
